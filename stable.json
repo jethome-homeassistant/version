@@ -1,6 +1,6 @@
 {
   "channel": "stable",
-  "supervisor": "2025.03.4",
+  "supervisor": "2025.04.1",
   "homeassistant": {
     "jethub-d1": "2025.4.4",
     "jethub-d1p": "2025.4.4",
