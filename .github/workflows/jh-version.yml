@@ -25,7 +25,7 @@ env:
 jobs:
   lint:
     name: Lint
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNNER }}
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v4
@@ -36,7 +36,7 @@ jobs:
   prepare:
     name: Prepare
     needs: ["lint"]
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNNER }}
     outputs:
       files: ${{ steps.calc_file_list.outputs.changed_files }}
       sign_matrix: ${{ steps.calc_file_list.outputs.result }}
@@ -75,7 +75,7 @@ jobs:
     name: Sign ${{ matrix.path }}
     needs: ["prepare"]
     if: ${{ (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && needs.prepare.outputs.sign_matrix != '[]' }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNNER }}
     permissions:
       id-token: write
       packages: write
@@ -132,7 +132,7 @@ jobs:
     needs: ["signing", "prepare"]
     # Make sure to run this job even if signing has been skipped.
     if: ${{ !failure() && !cancelled() && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
-    runs-on: ubuntu-latest
+    runs-on: ${{ vars.RUNNER }}
     steps:
     - name: Checkout the repository
       uses: actions/checkout@v4

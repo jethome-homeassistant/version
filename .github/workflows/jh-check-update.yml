@@ -19,7 +19,7 @@ on:
 jobs:
   prepare:
     name: Prepare
-    runs-on: [ self-hosted ]
+    runs-on: ${{ vars.RUNNER }}
     if: ${{ github.repository_owner == 'jethub-homeassistant' }}
     outputs:
       files: ${{ steps.changed_files.outputs.files }}
@@ -45,7 +45,7 @@ jobs:
   updatever:
     name: Prepare repository
     needs: ["prepare"]
-    runs-on: [self-hosted]
+    runs-on: ${{ vars.RUNNER }}
     if: ${{ github.repository_owner == 'jethub-homeassistant' }}
     steps:
       - name: Checkout jethub version repository (master)
