@@ -28,10 +28,10 @@ jobs:
     runs-on: ${{ vars.RUNNER }}
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
 
     - name: Lint with JQ
-      uses: jethub-homeassistant/actions/helpers/jq@master-jethub
+      uses: jethome-homeassistant/actions/helpers/jq@master-jethub
 
   prepare:
     name: Prepare
@@ -97,7 +97,7 @@ jobs:
         uses: docker/login-action@v3.3.0
         with:
           registry: ghcr.io
-          username: jethub-homeassistant
+          username: jethome-homeassistant
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - uses: sigstore/cosign-installer@main
@@ -111,13 +111,13 @@ jobs:
 
       - name: Upload file
         run: |
-          cosign upload blob -f ${{ matrix.path }} ghcr.io/jethub-homeassistant/version/${{ matrix.path }}
+          cosign upload blob -f ${{ matrix.path }} ghcr.io/jethome-homeassistant/version/${{ matrix.path }}
 
       - name: Sign Cosign
         run: |
-          cosign sign --yes ghcr.io/jethub-homeassistant/version/${{ matrix.path }}
+          cosign sign --yes ghcr.io/jethome-homeassistant/version/${{ matrix.path }}
           cosign sign-blob --yes ${{ matrix.path }} --bundle ${{ matrix.path }}.sig
-          #cosign sign --yes --key env://COSIGN_PRIVATE_KEY --output-signature ${{ matrix.path }}.sig ghcr.io/jethub-homeassistant/version/${{ matrix.path }}
+          #cosign sign --yes --key env://COSIGN_PRIVATE_KEY --output-signature ${{ matrix.path }}.sig ghcr.io/jethome-homeassistant/version/${{ matrix.path }}
         #env:
         #  COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_KEY }}
 
