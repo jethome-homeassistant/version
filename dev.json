@@ -62,11 +62,11 @@
     "3": "3.13"
   },
   "ota": "https://os-builds.iot.jethome.ru/{version}/{os_name}_{board}-{version}.raucb",
-  "cli": "2025.06.0.dev2001",
+  "cli": "2025.08.1.dev1201",
   "dns": "2025.02.0.dev2601",
-  "audio": "2025.02.0.dev2502",
-  "multicast": "2025.02.0.dev2601",
-  "observer": "2025.07.0.dev0301",
+  "audio": "2025.08.0.dev0502",
+  "multicast": "2025.08.0.dev1101",
+  "observer": "2025.08.0.dev0502",
   "image": {
     "core": "ghcr.io/jethome-homeassistant/{machine}-homeassistant",
     "supervisor": "ghcr.io/jethome-homeassistant/{arch}-hassio-supervisor",
