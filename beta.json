@@ -67,7 +67,7 @@
     "3": "3.13"
   },
   "ota": "https://github.com/jethome-homeassistant/operating-system/releases/download/{version}/{os_name}_{board}-{version}.raucb",
-  "cli": "2025.10.0",
+  "cli": "2025.12.0",
   "dns": "2025.08.0",
   "audio": "2025.08.0",
   "multicast": "2025.08.0",
