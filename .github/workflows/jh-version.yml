@@ -196,6 +196,7 @@ jobs:
 
     - name: Notify
       if: ${{ steps.checkdiff.outputs.message != null }}
+      continue-on-error: true
       uses: appleboy/telegram-action@master
       with:
         to: ${{ secrets.TELEGRAM_TO }}
