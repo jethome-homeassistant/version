@@ -32,16 +32,16 @@
     "odroid-xu": "2025.11.3"
   },
   "hassos": {
-    "ova": "17.2",
-    "jethub-d1": "17.2",
-    "jethub-d2": "17.2",
-    "jethub-d1p": "17.2",
-    "jethub-h1": "17.2",
-    "jethub-h2": "17.2",
-    "odroid-c2": "17.2",
-    "odroid-c4": "17.2",
-    "generic-x86-64": "17.2",
-    "generic-aarch64": "17.2"
+    "ova": "17.3",
+    "jethub-d1": "17.3",
+    "jethub-d2": "17.3",
+    "jethub-d1p": "17.3",
+    "jethub-h1": "17.3",
+    "jethub-h2": "17.3",
+    "odroid-c2": "17.3",
+    "odroid-c4": "17.3",
+    "generic-x86-64": "17.3",
+    "generic-aarch64": "17.3"
   },
   "hassos-upgrade": {
     "11": "11.2",
