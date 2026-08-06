@@ -63,7 +63,7 @@
   },
   "ota": "https://os-builds.iot.jethome.ru/{version}/{os_name}_{board}-{version}.raucb",
   "cli": "2026.07.0.dev3001",
-  "dns": "2026.07.0.dev3001",
+  "dns": "2026.08.0.dev0504",
   "audio": "2026.07.0.dev3001",
   "multicast": "2026.07.0.dev3001",
   "observer": "2026.07.0.dev3001",
