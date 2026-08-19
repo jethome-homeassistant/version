@@ -58,8 +58,8 @@
   "cli": "2026.06.0",
   "dns": "2026.02.0",
   "audio": "2026.02.0",
-  "multicast": "2026.02.0",
-  "observer": "2026.02.0",
+  "multicast": "2026.08.0",
+  "observer": "2026.08.0",
   "image": {
     "core": "ghcr.io/jethome-homeassistant/{machine}-homeassistant",
     "supervisor": "ghcr.io/jethome-homeassistant/{arch}-hassio-supervisor",
