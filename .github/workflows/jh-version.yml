@@ -28,7 +28,7 @@ jobs:
     runs-on: ${{ vars.RUNNER }}
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v5
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
     - name: Lint with JQ
       uses: jethome-homeassistant/actions/helpers/jq@master-jethub
@@ -42,17 +42,17 @@ jobs:
       sign_matrix: ${{ steps.calc_file_list.outputs.result }}
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
     - name: Get changed files for push
       if: github.event_name == 'push'
       id: changed_files_push
-      uses: masesgroup/retrieve-changed-files@v3.0.0
+      uses: masesgroup/retrieve-changed-files@v4.0.0
       with:
         format: 'json'
 
     - name: Calculate files to sign and push
-      uses: actions/github-script@v7
+      uses: actions/github-script@v9
       id: calc_file_list
       with:
         script: |
@@ -84,7 +84,7 @@ jobs:
         path: ${{ fromJson(needs.prepare.outputs.sign_matrix) }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Install SSH key for storage
         uses: shimataro/ssh-key-action@v2
@@ -94,7 +94,7 @@ jobs:
           if_key_exists: replace
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3.3.0
+        uses: docker/login-action@v4.6.0
         with:
           registry: ghcr.io
           username: jethome-homeassistant
@@ -105,7 +105,7 @@ jobs:
           cosign-release: ${{ env.COSIGN_VERSION }}
 
       - name: Setup Python version ${{ env.PYTHON_VERSION }}
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: ${{ env.PYTHON_VERSION }}
 
@@ -135,7 +135,7 @@ jobs:
     runs-on: ${{ vars.RUNNER }}
     steps:
     - name: Checkout the repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
     - name: Install SSH key for storage
       uses: shimataro/ssh-key-action@v2
